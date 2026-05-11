@@ -1,4 +1,4 @@
-package curd_operation_by_prepare_statement;
+package crud_operation_by_prepare_statement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,8 +1,11 @@
-package curd_operations;
+package crud_operations;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class RetrivalOfDataFromDatabase {
+public class DeletionOfRecordInDataBase {
     public static void main(String[] args) {
         Connection connect=null;
         Statement stmt=null;
@@ -17,10 +20,12 @@ public class RetrivalOfDataFromDatabase {
             //creating statement Object
             stmt=connect.createStatement();
             //execute the query
-            String sql="SELECT * FROM studentInfo";
-            ResultSet rs=stmt.executeQuery(sql);
-            while (rs.next()){
-                System.out.println(rs.getInt("id")+" "+rs.getString("sname")+" "+rs.getInt("sage")+" "+rs.getString("scity"));
+            String sql="DELETE FROM studentInfo WHERE id=5";
+            int rowAffect=stmt.executeUpdate(sql);
+            if (rowAffect == 0) {
+                System.out.println("unable to delete the record");
+            }else{
+                System.out.println("Data deleted successfully");
             }
 
         } catch (ClassNotFoundException e) {
@@ -32,7 +37,6 @@ public class RetrivalOfDataFromDatabase {
         }
         finally {
             try{
-                //rs.close();
                 stmt.close();
                 connect.close();
 

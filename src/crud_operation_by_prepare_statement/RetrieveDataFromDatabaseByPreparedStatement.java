@@ -1,30 +1,30 @@
-package curd_operation_by_prepare_statement;
+package crud_operation_by_prepare_statement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class UpdateDataInDatabaseByPreparedStatement {
+public class RetrieveDataFromDatabaseByPreparedStatement {
     public static void main(String[] args) {
         Connection connect=null;
         PreparedStatement pstmt=null;
         try{
             connect=JdbcUtil.getConnection();
-            String sql="UPDATE studentInfo SET scity=? WHERE id=?";
+            String sql="SELECT * FROM studentInfo WHERE id=?";
             pstmt=connect.prepareStatement(sql);
             Scanner scan=new Scanner(System.in);
-            System.out.println("enter your id");
+            System.out.println("enter profile  id");
             Integer id=scan.nextInt();
-            System.out.println("enter your city");
-            String city=scan.next();
-            pstmt.setString(1,city);
-            pstmt.setInt(2,id);
-            int rowsAffected=pstmt.executeUpdate();
-            if(rowsAffected==0){
-                System.out.println("unable to update data");
-            }else{
-                System.out.println("Data updated successfully");
+            pstmt.setInt(1,id);
+            System.out.println("profile details");
+            ResultSet rs =pstmt.executeQuery();
+            while(rs.next()){
+                System.out.println("ID: "+rs.getInt(1));
+                System.out.println("Name: "+rs.getString(2));
+                System.out.println("Age: "+rs.getInt(3));
+                System.out.println("City: "+rs.getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();

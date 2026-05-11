@@ -194,9 +194,9 @@ closeConnection()
 ```text
 jdbcdemo
 
-curd_operations
+crud_operations
 
-curd_operation_by_prepare_statement
+crud_operation_by_prepare_statement
 ```
 
 ---

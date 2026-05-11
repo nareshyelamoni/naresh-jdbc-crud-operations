@@ -1,11 +1,11 @@
-package curd_operations;
+package crud_operations;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertionOfData {
+public class UpdateDataInDataBase {
     public static void main(String[] args) {
         Connection connect=null;
         Statement stmt=null;
@@ -20,12 +20,12 @@ public class InsertionOfData {
             //creating statement Object
             stmt=connect.createStatement();
             //execute the query
-            String sql="INSERT INTO studentInfo (id,sname,sage,scity) VALUES (6,'Meghana',12,'Hyderabad')";
+            String sql="UPDATE studentInfo SET sage=26 WHERE id=2";
             int rowAffect=stmt.executeUpdate(sql);
             if (rowAffect == 0) {
-                System.out.println("unable to insert the record");
+                System.out.println("unable to update the record");
             }else{
-                System.out.println("Data inserted successfully");
+                System.out.println("Data updated successfully");
             }
 
         } catch (ClassNotFoundException e) {

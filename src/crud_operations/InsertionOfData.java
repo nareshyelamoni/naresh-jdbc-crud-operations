@@ -1,11 +1,11 @@
-package curd_operations;
+package crud_operations;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DeletionOfRecordInDataBase {
+public class InsertionOfData {
     public static void main(String[] args) {
         Connection connect=null;
         Statement stmt=null;
@@ -20,12 +20,12 @@ public class DeletionOfRecordInDataBase {
             //creating statement Object
             stmt=connect.createStatement();
             //execute the query
-            String sql="DELETE FROM studentInfo WHERE id=5";
+            String sql="INSERT INTO studentInfo (id,sname,sage,scity) VALUES (6,'Meghana',12,'Hyderabad')";
             int rowAffect=stmt.executeUpdate(sql);
             if (rowAffect == 0) {
-                System.out.println("unable to delete the record");
+                System.out.println("unable to insert the record");
             }else{
-                System.out.println("Data deleted successfully");
+                System.out.println("Data inserted successfully");
             }
 
         } catch (ClassNotFoundException e) {

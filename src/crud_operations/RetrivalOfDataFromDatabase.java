@@ -1,11 +1,8 @@
-package curd_operations;
+package crud_operations;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class UpdateDataInDataBase {
+public class RetrivalOfDataFromDatabase {
     public static void main(String[] args) {
         Connection connect=null;
         Statement stmt=null;
@@ -20,12 +17,10 @@ public class UpdateDataInDataBase {
             //creating statement Object
             stmt=connect.createStatement();
             //execute the query
-            String sql="UPDATE studentInfo SET sage=26 WHERE id=2";
-            int rowAffect=stmt.executeUpdate(sql);
-            if (rowAffect == 0) {
-                System.out.println("unable to update the record");
-            }else{
-                System.out.println("Data updated successfully");
+            String sql="SELECT * FROM studentInfo";
+            ResultSet rs=stmt.executeQuery(sql);
+            while (rs.next()){
+                System.out.println(rs.getInt("id")+" "+rs.getString("sname")+" "+rs.getInt("sage")+" "+rs.getString("scity"));
             }
 
         } catch (ClassNotFoundException e) {
@@ -37,6 +32,7 @@ public class UpdateDataInDataBase {
         }
         finally {
             try{
+                //rs.close();
                 stmt.close();
                 connect.close();
 

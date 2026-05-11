@@ -1,4 +1,4 @@
-package curd_operations;
+package crud_operations;
 
 import java.sql.*;
 

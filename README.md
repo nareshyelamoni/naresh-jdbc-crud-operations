@@ -106,16 +106,8 @@ SELECT * FROM studentInfo;
 # 📂 Project Structure
 
 ```text
-src/
-│
-├── jdbcdemo/
-│   └── ClassForNameEx.java
-│
-├── curd_operations/
-│   ├── InsertionOfData.java
-│   ├── UpdateDataInDataBase.java
-│   ├── DeletionOfRecordInDataBase.java
-│   └── RetrivalOfDataFromDatabase.java
+jdbcdemo
+curd_operations
 ```
 
 ---

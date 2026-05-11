@@ -32,6 +32,7 @@ public class RetrivalOfDataFromDatabase {
         }
         finally {
             try{
+                //rs.close();
                 stmt.close();
                 connect.close();
 

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class RetriveDataFromDatabaseByPreparedStatement {
+public class RetrieveDataFromDatabaseByPreparedStatement {
     public static void main(String[] args) {
         Connection connect=null;
         PreparedStatement pstmt=null;
